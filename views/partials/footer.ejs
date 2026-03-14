@@ -1,0 +1,75 @@
+<footer class="relative bg-teal-100 text-white mt-16 overflow-hidden">
+    <!-- Montañas con degradado -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" class="w-full h-40">
+            <defs>
+                <linearGradient id="mountainGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#A7F3D0" /> <!-- verde muy claro -->
+                    <stop offset="100%" stop-color="#22D3EE" /> <!-- azul verdoso -->
+                </linearGradient>
+            </defs>
+            <path id="mountainPath" fill="url(#mountainGradient)"
+                d="
+                M0,160 L120,200 L250,140 L370,190 L500,120 L620,180 L750,130 L870,170 L1000,110 L1120,150 L1250,100 L1370,160 L1440,120 L1440,320 L0,320 Z">
+            </path>
+            <!-- Flores sobre las montañas -->
+            <!-- Flores decorativas -->
+            <div class="absolute top-2 left-10 w-6 h-6 bg-pink-300 rounded-full opacity-70 animate-bounce-slow"></div>
+            <div class="absolute top-6 right-20 w-4 h-4 bg-yellow-300 rounded-full opacity-60 animate-bounce-slow">
+            </div>
+            <div class="absolute top-10 left-1/2 w-5 h-5 bg-purple-300 rounded-full opacity-50 animate-bounce-slow">
+            </div>
+            <div class="absolute top-4 right-1/2 w-6 h-6 bg-red-300 rounded-full opacity-50 animate-bounce-slow">
+            </div>
+
+        </svg>
+    </div>
+
+    <div class="relative z-10 py-12 flex flex-col items-center">
+        <!-- Redes sociales -->
+        <div class="flex justify-center space-x-6 text-2xl mb-4">
+            <a href="https://www.facebook.com/profile.php?id=100070964383021&locale=es_ES" class="hover:text-blue-400">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/Rs.photostudio.rociosanchez/" class="hover:text-pink-400">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/34605652742" class="hover:text-green-400">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="mailto:rs.photostudio.rociosanchez@gmail.com" class="hover:text-red-400">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <!-- Texto -->
+        <p class="text-center text-sm text-gray-800">&copy; 2024 RS Photo Studio. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<!-- Animación suave de montañas -->
+<script>
+    const path = document.getElementById('mountainPath');
+    let t = 0;
+    function animateMountains() {
+        t += 0.01;
+        path.setAttribute('d', `
+            M0,${160 + 5 * Math.sin(t)}
+            L120,${200 + 5 * Math.cos(t)}
+            L250,${140 + 5 * Math.sin(t * 1.2)}
+            L370,${190 + 5 * Math.cos(t * 1.3)}
+            L500,${120 + 5 * Math.sin(t * 1.1)}
+            L620,${180 + 5 * Math.cos(t * 1.2)}
+            L750,${130 + 5 * Math.sin(t * 1.3)}
+            L870,${170 + 5 * Math.cos(t * 1.1)}
+            L1000,${110 + 5 * Math.sin(t * 1.2)}
+            L1120,${150 + 5 * Math.cos(t * 1.3)}
+            L1250,${100 + 5 * Math.sin(t * 1.1)}
+            L1370,${160 + 5 * Math.cos(t * 1.2)}
+            L1440,${120 + 5 * Math.sin(t * 1.3)}
+            L1440,320
+            L0,320 Z
+        `);
+        requestAnimationFrame(animateMountains);
+    }
+    animateMountains();
+</script>

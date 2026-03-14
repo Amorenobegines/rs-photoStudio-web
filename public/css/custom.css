@@ -1,0 +1,193 @@
+body {
+    background: linear-gradient(135deg, #fef6f0, #cde6e1);
+}
+
+/* Cajas visibles */
+#boxWrapper .box {
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.6);
+    /* Color blanco semitransparente */
+    border-radius: 20px;
+    border: 1px solid rgba(74, 73, 73, 0.2);
+    transition: transform 2s ease-in-out;
+}
+
+/* Efecto al pasar el ratón */
+#boxWrapper:hover .box {
+    transform: rotate(5deg) scale(1.02);
+}
+
+/* Sección de servicios sobre fondo oscuro */
+.service-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 2rem;
+    /* espacio amplio para destacar la sección */
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+    /* Que esté por encima del fondo animado */
+}
+
+/* Texto del servicio */
+.service-section .service-text {
+    flex: 1 1 400px;
+}
+
+.service-section .service-text h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: #534e4e;
+    /* Blanco para contraste sobre fondo oscuro */
+}
+
+.service-section .service-text p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    color: #534e4e;
+    /* Gris claro para contraste */
+}
+
+/* Foto del servicio */
+.service-section .service-photo {
+    flex: 1 1 400px;
+    position: relative;
+}
+
+.service-section .service-photo img {
+    width: 100%;
+    border-radius: 40px 0 40px 0;
+    /* borde recortado asimétrico */
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(6, 6, 6, 0.4);
+    /* más visible sobre fondo oscuro */
+    transition: transform 0.5s, filter 0.5s;
+    clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
+}
+
+.service-section .service-photo img:hover {
+    transform: scale(1.05) rotate(-1deg);
+    filter: brightness(1.2);
+}
+
+/* Sección de servicios con foto a la izquierda */
+.family-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 2rem;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+    /* Encima del fondo animado */
+}
+
+/* Texto de la familia */
+.family-section .family-text {
+    flex: 1 1 400px;
+}
+
+.family-section .family-text h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: #534e4e;
+}
+
+.family-section .family-text p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    color: #534e4e;
+}
+
+/* Foto de la familia */
+.family-section .family-photo {
+    flex: 1 1 400px;
+    position: relative;
+}
+
+.family-section .family-photo img {
+    width: 100%;
+    border-radius: 50% 0 50% 0;
+    /* efecto diferente al de maternidad */
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.5s, filter 0.5s, border-radius 0.5s;
+    clip-path: ellipse(80% 100% at 50% 50%);
+    /* forma ovalada */
+}
+
+.family-section .family-photo img:hover {
+    transform: scale(1.05) rotate(1deg);
+    filter: brightness(1.15);
+    border-radius: 60% 20% 60% 20%;
+    /* animación suave al pasar el mouse */
+}
+
+/* Carrusel de fotos */
+.carousel-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: scroll-left 25s linear infinite;
+    will-change: transform;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Opcional: sombra y borde redondeado de las imágenes */
+.carousel-track img {
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+}
+
+
+/* Contenedor de los servicios */
+.service-card {
+    position: relative;
+    border-radius: 25% / 15%;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    border-radius: inherit;
+    filter: brightness(0.95);
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+}
+
+.service-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(1);
+}
+
+.service-name {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    color: #2d2d2d;
+    font-size: 1.1rem;
+}

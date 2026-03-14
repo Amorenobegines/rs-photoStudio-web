@@ -1,0 +1,133 @@
+<section class="bg-white min-h-screen flex items-start justify-center py-32 px-4 md:px-0">
+    <div class="flex flex-col md:flex-row items-center max-w-6xl w-full md:space-x-12">
+
+        <!-- Foto grande -->
+        <div class="md:w-1/2 w-full mb-8 md:mb-0">
+            <img src="/images/logo1.png" alt="Fotografía profesional"
+                class="w-full h-auto rounded-lg shadow-xl object-cover">
+        </div>
+
+        <!-- Texto + Formulario -->
+        <div class="md:w-1/2 w-full bg-teal-300 p-8 rounded-lg shadow-lg">
+
+            <h1 class="text-4xl font-bold mb-6 text-gray-100">Contacto</h1>
+
+            <p class="text-lg leading-relaxed mb-4 text-gray-100">
+                Si deseas reservar una sesión de fotos, solicitar información adicional o simplemente quieres ponerte en
+                contacto conmigo, rellena el siguiente formulario.
+            </p>
+
+            <!-- FORMULARIO -->
+            <!--   <form id="contactForm" class="mt-6 space-y-4">  -->
+            <form id="contactForm" action="/contacto" method="POST" class="mt-6 space-y-4">
+
+                <div>
+                    <label class="block text-gray-100 font-semibold mb-1">Nombre</label>
+                    <input type="text" name="nombre" required
+                        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-gray-100 font-semibold mb-1">Email</label>
+                    <input type="email" name="email" pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+                        required
+                        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-gray-100 font-semibold mb-1">Teléfono</label>
+                    <input type="text" name="telefono" pattern="[0-9]{9}" required
+                        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-gray-100 font-semibold mb-1">Tipo de sesión</label>
+                    <select name="sesion" required
+                        class="w-full p-3 rounded-lg border border-gray-300 bg-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                        <option value="">Selecciona una opción</option>
+                        <option value="maternidad">Maternidad</option>
+                        <option value="seguimiento">Seguimiento</option>
+                        <option value="cumpleaños">Smash Cakes</option>
+                        <option value="recien-nacidos">Recién nacidos</option>
+                        <option value="comuniones">Comuniones</option>
+                        <option value="bautizos">Bautizos</option>
+                        <option value="navidad">Navidad</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-100 font-semibold mb-1">¿Cómo nos has conocido?</label>
+                    <select name="conocido" required
+                        class="w-full p-3 rounded-lg border border-gray-300 bg-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                        <option value="">Selecciona una opción</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="google">Google</option>
+                        <option value="amigos">Amigos / Familia</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label class="block text-gray-100 font-semibold mb-1">Mensaje</label>
+                    <textarea name="mensaje" rows="4" required
+                        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:outline-none"></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-lg transition transform hover:scale-105">
+                    Enviar mensaje
+                </button>
+            </form>
+            <!-- TOAST -->
+            <div id="toast"
+                class="fixed top-6 right-6 bg-teal-700 text-white px-6 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transition duration-300 z-50">
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    const form = document.getElementById("contactForm");
+    const toast = document.getElementById("toast");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const body = new URLSearchParams(formData);
+
+        try {
+            const response = await fetch("/contacto", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body
+            });
+
+            const result = await response.json();
+
+            // Mostrar mensaje en el toast
+            toast.textContent = result.mensaje || "¡Mensaje enviado!";
+            // toast.textContent = "¡Mensaje enviado!";
+            toast.classList.remove("opacity-0");
+            toast.classList.add("opacity-100");
+
+            setTimeout(() => {
+                toast.classList.remove("opacity-100");
+                toast.classList.add("opacity-0");
+            }, 3000);
+
+            if (result.success) form.reset();
+
+        } catch (error) {
+            toast.textContent = "Hubo un error al enviar el mensaje.";
+            toast.classList.remove("opacity-0");
+            toast.classList.add("opacity-100");
+
+            setTimeout(() => {
+                toast.classList.remove("opacity-100");
+                toast.classList.add("opacity-0");
+            }, 3000);
+        }
+    });
+</script>
