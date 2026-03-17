@@ -2,6 +2,7 @@ body {
     background: linear-gradient(135deg, #fef6f0, #cde6e1);
 }
 
+
 /* Cajas visibles */
 #boxWrapper .box {
     width: 200px;

@@ -1,6 +1,6 @@
 const posts = [
     {
-        title: "Cuándo hacer una sesión de maternidad",
+        title: "Cuándo hacer una sesión de maternidad  Dos Hermanas / Sevilla",
         slug: "maternidad",
         image: "/images/maternidad.jpg",
         description: "El mejor momento para una sesión de maternidad suele ser entre la semana 28 y 34.",
@@ -10,10 +10,11 @@ const posts = [
       <p>Consejo: incluye al padre o hermanos para fotos familiares inolvidables.</p>
     `,
         date: "2026-03-14",
-        tags: ["maternidad", "embarazo", "fotografía"]
+        tags: ["maternidad", "embarazo", "fotografía", "Dos Hermanas", "Sevilla"]
     },
+
     {
-        title: "Consejos para una sesión newborn",
+        title: "Consejos para una sesión newborn Dos Hermanas / Sevilla",
         slug: "newborn",
         image: "/images/born.jpg",
         description: "Las sesiones de recién nacido se realizan normalmente durante los primeros 15 días.",
@@ -27,22 +28,9 @@ const posts = [
     },
 
     {
-        title: "Ideas para fotos de comunión",
-        slug: "comunion",
-        image: "/images/comunion.jpg",
-        description: "Las comuniones son momentos únicos. Descubre ideas para conseguir fotos naturales.",
-        content: `
-      <p>La sesión de comunión captura un día especial para los niños. Escoge exteriores con luz suave para un resultado natural.</p>
-      <p>Incluye props como flores o libros y aprovecha los colores del entorno. No olvides los retratos familiares.</p>
-    `,
-        date: "2026-02-28",
-        tags: ["comunión", "familia", "fotografía"]
-    },
-
-    {
-        title: "Cómo preparar una sesión de smash cake",
-        slug: "smash-cake",
-        image: "images/cumple.jpg",
+        title: "Cómo preparar una sesión de smash cake Dos Hermanas / Sevilla",
+        slug: "Smash-cake",
+        image: "/images/smash-cake.jfif",
         description: "Los cumpleaños es un momento lleno de alegría y descubrimiento. Las sesiones Smash Cake capturan esa mezcla perfecta entre diversión, ternura y espontaneidad.",
         content: `
   <p>La sesión <strong>Smash Cake</strong> se ha convertido en una de las formas más divertidas y tiernas de celebrar el primer cumpleaños. Es un momento único en el que los peques descubren texturas, colores y sabores mientras juegan, exploran y se expresan con total libertad.</p>
@@ -53,12 +41,58 @@ const posts = [
 
   <p>La sesión Smash Cake no es solo una sesión de fotos: es una experiencia inolvidable para celebrar el crecimiento de vuestro pequeño y conservar la magia de su primer año de vida.</p>
 `,
-        date: "2026-03-20",
-        tags: ["cumpleaños", "infantil", "fotografía"]
+        date: "2026-02-20",
+        tags: ["cumpleaños", "infantil", "smask cake", "fotografía", "Dos Hermanas", "Sevilla"]
+    },
+
+
+    {
+        title: "Cómo preparar una sesión de infantil Dos Hermanas / Sevilla",
+        slug: "infantil",
+        image: "/images/cumple2.jfif",
+        description: "La sesión intantil es un momento lleno de alegría y descubrimiento. Las sesiones Smash Cake capturan esa mezcla perfecta entre diversión, ternura y espontaneidad.",
+        content: `
+  <p>La sesión <strong>Smash Cake</strong> se ha convertido en una de las formas más divertidas y tiernas de celebrar el primer cumpleaños. Es un momento único en el que los peques descubren texturas, colores y sabores mientras juegan, exploran y se expresan con total libertad.</p>
+
+  <p>El objetivo es capturar su personalidad tal y como es: curiosa, espontánea y llena de energía. Para ello, utilizamos decoraciones suaves, tonos armoniosos y un ambiente preparado para que el niño o la niña se sienta cómodo en todo momento. El pastel, diseñado especialmente para la sesión, se convierte en el protagonista junto a su sonrisa.</p>
+
+  <p>Además de las fotos divertidas con el pastel, también realizamos retratos más tranquilos y naturales, creando un recuerdo completo de esta etapa tan especial. Cada gesto, cada manita llena de crema y cada mirada de sorpresa se transforma en una imagen que guardaréis para siempre.</p>
+
+  <p>La sesión Smash Cake no es solo una sesión de fotos: es una experiencia inolvidable para celebrar el crecimiento de vuestro pequeño y conservar la magia de su primer año de vida.</p>
+`,
+        date: "2025-05-10",
+        tags: ["cumpleaños", "infantil", "fotografía", "Dos Hermanas", "Sevilla"]
     },
 
     {
-        title: "Cómo preparar una sesión de seguimiento de bebé",
+        title: "Ideas para fotos de comunión Dos Hermanas / Sevilla",
+        slug: "comunion",
+        image: "/images/comunion.jpg",
+        description: "Las comuniones son momentos únicos. Descubre ideas para conseguir fotos naturales.",
+        content: `
+      <p>La sesión de comunión captura un día especial para los niños. Escoge exteriores con luz suave para un resultado natural.</p>
+      <p>Incluye props como flores o libros y aprovecha los colores del entorno. No olvides los retratos familiares.</p>
+    `,
+        date: "2026-01-14",
+        tags: ["comunión", "familia", "fotografía"]
+    },
+
+    {
+        title: "Cuándo hacer una sesión de navidad Dos Hermanas / Sevilla",
+        slug: "navidad",
+        image: "/images/nav1.jpg",
+        description: "El mejor momento para una sesión de navidad suele ................",
+        content: `
+      <p>Las sesiones de navidad permiten capturar la magia de la espera. .</p>
+      <p>Elige ropa cómoda y colores neutros. Los accesorios pueden añadir un toque personal. La luz natural es la mejor amiga de estas sesiones.</p>
+      <p>Consejo: incluye al padre o hermanos para fotos familiares inolvidables.</p>
+    `,
+        date: "2025-12-01",
+        tags: ["navidad", "familia", "fotografía", "Dos Hermanas", "Sevilla"]
+    },
+
+    {
+        title: "Cómo preparar una sesión de seguimiento de bebé Dos Hermanas / Sevilla",
         slug: "seguimiento-bebe",
         image: "/images/born.jpg",
         description: "Las sesiones de seguimiento de bebé permiten capturar los momentos más preciados del crecimiento.",
@@ -66,12 +100,12 @@ const posts = [
       <p>Las sesiones de seguimiento de bebé son ideales para documentar el crecimiento y desarrollo del pequeño.</p>
       <p>Elige ropa cómoda y colores suaves. Los accesorios pueden añadir un toque personal. La luz natural es la mejor amiga de estas sesiones.</p>
     `,
-        date: "2026-03-20",
-        tags: ["seguimiento", "bebé", "fotografía"]
+        date: "2025-11-20",
+        tags: ["seguimiento", "bebé", "fotografía", "Dos Hermanas", "Sevilla"]
     },
 
     {
-        title: "Cómo preparar una sesión de pareja",
+        title: "Cómo preparar una sesión de pareja Dos Hermanas / Sevilla",
         slug: "pareja",
         image: "/images/pareja.jpg",
         description: "Las sesiones de pareja son una forma hermosa de capturar el amor. Aquí tienes algunos consejos para prepararla.",
@@ -79,12 +113,38 @@ const posts = [
       <p>Las sesiones de pareja son ideales para celebrar el amor. Elige un lugar significativo para ambos, como un parque o la playa.</p>
         <p>Coordina la ropa para que armonice sin ser demasiado igual. La clave es relajarse y disfrutar del momento para obtener fotos auténticas.</p>
     `,
-        date: "2023-08-05",
-        tags: ["pareja", "amor", "fotografía"]
+        date: "2025-10-12",
+        tags: ["pareja", "amor", "fotografía", "Dos Hermanas", "Sevilla"]
     },
 
     {
-        title: "Mini sesión de verano",
+        title: "Cómo preparar una sesión familiar Dos Hermanas / Sevilla",
+        slug: "familia",
+        image: "/images/fam1.jpg",
+        description: "Las sesiones familiares son una forma hermosa de capturar el amor. Aquí tienes algunos consejos para prepararla.",
+        content: `
+      <p>Las sesiones familiares son ideales para celebrar el amor. Elige un lugar significativo para ambos, como un parque o la playa.</p>
+        <p>Coordina la ropa para que armonice sin ser demasiado igual. La clave es relajarse y disfrutar del momento para obtener fotos auténticas.</p>
+    `,
+        date: "2025-09-22",
+        tags: ["familia", "amor", "fotografía", "Dos Hermanas", "Sevilla"]
+    },
+
+    {
+        title: "Cómo preparar una sesión de bautizo en Dos Hermanas / Sevilla",
+        slug: "bautizo",
+        image: "/images/bautizo.jfif",
+        description: "Las sesiones de bautizos son una forma hermosa de capturar el amor. Aquí tienes algunos consejos para prepararla.",
+        content: `
+      <p>Las sesiones de bautizos son ideales para celebrar el amor. Elige un lugar significativo para ambos, como un parque o la playa.</p>
+        <p>Coordina la ropa para que armonice sin ser demasiado igual. La clave es relajarse y disfrutar del momento para obtener fotos auténticas.</p>
+    `,
+        date: "2025-09-22",
+        tags: ["bautizo", "bebe", "amor", "fotografía", "Dos Hermanas", "Sevilla"]
+    },
+
+    {
+        title: "Mini sesión de verano Dos Hermanas / Sevilla",
         slug: "verano",
         image: "/images/verano.jpg",
         description: "El verano es la estación perfecta para crear recuerdos llenos de luz, color y naturalidad. Descubre cómo aprovechar esta época para una sesión fresca, divertida y auténtica.",
@@ -98,7 +158,7 @@ const posts = [
       <p>El objetivo es crear un reportaje que conserve la esencia del verano: la libertad, la luz y la felicidad de compartir momentos sencillos que se convierten en recuerdos inolvidables.</p>
     `,
         date: "2024-12-10",
-        tags: ["verano", "primavera", "fotografía"]
+        tags: ["verano", "primavera", "fotografía", "Dos Hermanas", "Sevilla"]
     }
 
 ];

@@ -6,7 +6,8 @@ const posts = require("../data/posts");
 router.get("/", (req, res) => {
     res.render("web/inicio");
 });
-router.get("/portfolio", (req, res) => {
+
+router.get("/galeria", (req, res) => {
     res.render("web/portfolio");
 });
 
@@ -20,10 +21,51 @@ router.get("/services", (req, res) => {
     res.render("web/services");
 });
 
+router.get("/fotografia-navidad-Dos-Hermanas", (req, res) => {
+    res.render("web/navidad");
+});
+
+router.get("/fotografia-comunion-Dos-Hermanas", (req, res) => {
+    res.render("web/comunion");
+});
+
+router.get("/fotografia-newborn-dos-hermanas", (req, res) => {
+    res.render("web/newborn");
+});
+
+router.get("/fotografia-familiar-dos-hermanas", (req, res) => {
+    res.render("web/familiar");
+});
+
+router.get("/fotografia-eventos-dos-hermanas", (req, res) => {
+    res.render("web/eventos");
+});
+
+router.get("/fotografia-bautizo-Dos-Hermanas", (req, res) => {
+    res.render("web/bautizos");
+});
+
+router.get("/fotografia-embarazo-dos-hermanas", (req, res) => {
+    res.render("web/maternidad");
+});
+
+router.get("/fotografia-smash-cake-dos-hermanas", (req, res) => {
+    res.render("web/smaskcake");
+});
+
+router.get("/fotografia-infantil-dos-hermanas", (req, res) => {
+    res.render("web/infantil");
+});
+
+router.get("/fotografia-seguimiento-dos-hermanas", (req, res) => {
+    res.render("web/seguimiento");
+});
 
 router.get("/contacto", (req, res) => {
     res.render("web/contacto");
 });
+
+
 router.get('/blog', (req, res) => {
     res.render('web/blog', { posts });
 });

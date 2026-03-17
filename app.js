@@ -7,7 +7,6 @@ const mongoose = require("mongoose");
 const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 
-
 const app = express();
 
 app.use(expressLayouts); // Activar layouts
