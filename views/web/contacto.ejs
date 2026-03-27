@@ -1,53 +1,49 @@
-<section class="bg-white min-h-screen flex items-start justify-center py-32 px-4 md:px-0">
+<section class="bg-gradient-to-b to-teal-50 min-h-screen flex items-start justify-center py-32 px-4 md:px-0">
     <div class="flex flex-col md:flex-row items-center max-w-6xl w-full md:space-x-12">
 
-        <!-- Foto grande -->
+        <!-- Foto -->
         <div class="md:w-1/2 w-full mb-8 md:mb-0">
             <img src="/images/logo1.png" alt="Fotografía profesional"
-                class="w-full h-auto rounded-lg shadow-xl object-cover">
+                class="w-full h-auto rounded-2xl shadow-2xl object-cover">
         </div>
 
-        <!-- Texto + Formulario -->
-        <div class="md:w-1/2 w-full bg-teal-300 p-8 rounded-lg shadow-lg">
+        <!-- Formulario -->
+        <div class="md:w-1/2 w-full bg-white p-8 md:p-10 rounded-2xl shadow-2xl border border-gray-100">
 
-            <h1 class="text-4xl font-bold mb-6 text-gray-100">Contacto</h1>
+            <h1 class="text-4xl font-bold mb-4 text-gray-800">Reserva tu sesión</h1>
 
-            <p class="text-lg leading-relaxed mb-4 text-gray-100">
-                Si deseas reservar una sesión de fotos, solicitar información adicional o simplemente quieres ponerte en
-                contacto conmigo, rellena el siguiente formulario.
+            <p class="text-lg text-gray-600 mb-6">
+                Cuéntame qué tipo de sesión deseas y te responderé lo antes posible para reservar tu fecha 📸
             </p>
 
-            <!-- FORMULARIO -->
-            <!--   <form id="contactForm" class="mt-6 space-y-4">  -->
-            <form id="contactForm" action="/contacto" method="POST" class="mt-6 space-y-4">
+            <form id="contactForm" action="/contacto" method="POST" class="space-y-4">
 
                 <div>
-                    <label class="block text-gray-100 font-semibold mb-1">Nombre</label>
+                    <label class="block text-gray-700 font-semibold mb-1">Nombre</label>
                     <input type="text" name="nombre" required
                         class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:outline-none">
                 </div>
 
                 <div>
-                    <label class="block text-gray-100 font-semibold mb-1">Email</label>
-                    <input type="email" name="email" pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
-                        required
+                    <label class="block text-gray-700 font-semibold mb-1">Email</label>
+                    <input type="email" name="email" required
                         class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:outline-none">
                 </div>
 
                 <div>
-                    <label class="block text-gray-100 font-semibold mb-1">Teléfono</label>
+                    <label class="block text-gray-700 font-semibold mb-1">Teléfono</label>
                     <input type="text" name="telefono" pattern="[0-9]{9}" required
                         class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:outline-none">
                 </div>
 
                 <div>
-                    <label class="block text-gray-100 font-semibold mb-1">Tipo de sesión</label>
+                    <label class="block text-gray-700 font-semibold mb-1">Tipo de sesión</label>
                     <select name="sesion" required
                         class="w-full p-3 rounded-lg border border-gray-300 bg-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
                         <option value="">Selecciona una opción</option>
                         <option value="maternidad">Maternidad</option>
                         <option value="seguimiento">Seguimiento</option>
-                        <option value="cumpleaños">Smash Cakes</option>
+                        <option value="smash-cake">Smash Cake</option>
                         <option value="recien-nacidos">Recién nacidos</option>
                         <option value="comuniones">Comuniones</option>
                         <option value="bautizos">Bautizos</option>
@@ -56,7 +52,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-gray-100 font-semibold mb-1">¿Cómo nos has conocido?</label>
+                    <label class="block text-gray-700 font-semibold mb-1">¿Cómo nos has conocido?</label>
                     <select name="conocido" required
                         class="w-full p-3 rounded-lg border border-gray-300 bg-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
                         <option value="">Selecciona una opción</option>
@@ -68,25 +64,33 @@
                     </select>
                 </div>
 
-
                 <div>
-                    <label class="block text-gray-100 font-semibold mb-1">Mensaje</label>
-                    <textarea name="mensaje" rows="4" required
+                    <label class="block text-gray-700 font-semibold mb-1">Mensaje</label>
+                    <textarea name="mensaje" rows="4"
+                        placeholder="Cuéntame la edad del bebé, fecha aproximada, idea de sesión..."
                         class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:outline-none"></textarea>
                 </div>
 
+                <!-- BOTÓN MÁS POTENTE -->
                 <button type="submit"
-                    class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-lg transition transform hover:scale-105">
-                    Enviar mensaje
+                    class="w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white font-semibold py-3 rounded-lg transition transform hover:scale-105 shadow-lg">
+                    Reservar ahora
                 </button>
+
+                <!-- Extra confianza -->
+                <p class="text-sm text-gray-500 text-center mt-2">
+                    Te responderé en menos de 24h
+                </p>
             </form>
+
             <!-- TOAST -->
             <div id="toast"
-                class="fixed top-6 right-6 bg-teal-700 text-white px-6 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transition duration-300 z-50">
+                class="fixed top-6 right-6 bg-teal-600 text-white px-6 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transition duration-300 z-50">
             </div>
         </div>
     </div>
 </section>
+
 <script>
     const form = document.getElementById("contactForm");
     const toast = document.getElementById("toast");
@@ -106,9 +110,7 @@
 
             const result = await response.json();
 
-            // Mostrar mensaje en el toast
-            toast.textContent = result.mensaje || "¡Mensaje enviado!";
-            // toast.textContent = "¡Mensaje enviado!";
+            toast.textContent = result.mensaje || "¡Mensaje enviado correctamente!";
             toast.classList.remove("opacity-0");
             toast.classList.add("opacity-100");
 
@@ -120,7 +122,7 @@
             if (result.success) form.reset();
 
         } catch (error) {
-            toast.textContent = "Hubo un error al enviar el mensaje.";
+            toast.textContent = "Error al enviar el mensaje.";
             toast.classList.remove("opacity-0");
             toast.classList.add("opacity-100");
 

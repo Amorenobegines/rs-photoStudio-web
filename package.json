@@ -1,10 +1,10 @@
 {
   "name": "rs-photostudio",
   "version": "1.0.0",
-  "description": "",
+  "description": "RS PhotoStudio – Página Web\r Proyecto web desarrollado para el estudio fotográfico RS PhotoStudio, con el objetivo de crear una plataforma moderna, \r visual y fácil de gestionar donde mostrar servicios, sesiones y contenido del blog.",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon app.js",
     "start": "node index.js",
     "start:debug": "nest start --debug --watch"
   },
@@ -13,21 +13,34 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.3",
     "connect-mongo": "^6.0.0",
+    "cookie-parser": "^1.4.7",
     "dotenv": "^17.3.1",
     "ejs": "^5.0.1",
     "express": "^5.2.1",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.19.0",
-    "mongoose": "^9.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.3.2",
     "multer": "^2.1.1",
-    "nodemailer": "^8.0.2"
+    "nodemailer": "^8.0.2",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.27",
     "nodemon": "^3.1.14",
     "postcss": "^8.5.8",
     "tailwindcss": "^3.3.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amorenobegines/rs-photoStudio-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Amorenobegines/rs-photoStudio-web/issues"
+  },
+  "homepage": "https://github.com/Amorenobegines/rs-photoStudio-web#readme"
 }

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ANIMACIÓN -->
+    <style>
+        .eye-icon {
+            transition: transform 0.2s ease;
+        }
+
+        button:active .eye-icon {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+
+<body class="h-screen w-screen flex flex-row-reverse">
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="relative w-full max-w-5xl mx-auto flex rounded-3xl overflow-hidden shadow-2xl mt-12">
+
+        <!-- LADO IZQUIERDO (IMAGEN) -->
+        <div class="hidden md:block w-1/2 relative">
+            <img src="/images/foto2.jpeg" class="w-full h-full object-cover opacity-80">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        <!-- LADO DERECHO (FORMULARIO) -->
+        <div class="w-full md:w-1/2 bg-[#2a2a2a] p-10 flex flex-col justify-center">
+
+            <!-- LOGO -->
+            <div class="mb-6 text-center">
+                <img src="/images/logo1.png" class="h-12 mx-auto mb-4 opacity-90">
+                <h2 class="text-2xl font-light tracking-wide text-[#c9a35c]">
+                    Bienvenido
+                </h2>
+            </div>
+
+            <!-- TEXTO -->
+            <p class="text-gray-400 text-sm text-center mb-8">
+                Accede a tu cuenta para gestionar tus sesiones
+            </p>
+
+            <% if (error) { %>
+                <div class="bg-red-500/20 border border-red-400 text-red-300 px-4 py-2 rounded-lg mb-4 text-sm">
+                    <%= error %>
+                </div>
+                <% } %>
+
+                    <!-- FORM -->
+                    <form action="/login" method="POST" class="space-y-5">
+
+                        <input type="email" name="email" placeholder="Email"
+                            class="w-full px-4 py-3 bg-transparent text-white placeholder-gray-400 border border-gray-600 rounded-lg focus:border-[#c9a35c] focus:ring-1 focus:ring-[#c9a35c] outline-none transition">
+
+                        <!-- PASSWORD CON ICONO -->
+                        <div class="relative">
+                            <input id="password" type="password" name="password" placeholder="Contraseña"
+                                class="w-full px-4 py-3 bg-transparent text-white border border-gray-600 rounded-lg focus:border-[#c9a35c] focus:ring-1 focus:ring-[#c9a35c] outline-none transition">
+                            <button type="button" onclick="togglePassword('password', this)"
+                                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-[#c9a35c] transition duration-200">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 eye-icon" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+
+                                    <!-- OJO ABIERTO -->
+                                    <path class="eye-open" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path class="eye-open" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 
+                                        0 8.268 2.943 9.542 7-1.274 
+                                        4.057-5.065 7-9.542 
+                                        7-4.477 0-8.268-2.943-9.542-7z" />
+
+                                    <!-- OJO CERRADO -->
+                                    <path class="eye-closed hidden" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 
+                                        19c-4.477 0-8.268-2.943-9.542-7a9.956 
+                                        9.956 0 012.293-3.95M6.1 
+                                        6.1A9.956 9.956 0 0112 5c4.477 
+                                        0 8.268 2.943 9.542 
+                                        7a9.97 9.97 0 01-4.132 
+                                        5.411M15 12a3 3 0 00-3-3m0 
+                                        0a3 3 0 00-3 3m3-3v6m6 
+                                        6L6 6" />
+                                </svg>
+
+                            </button>
+                        </div>
+                        <button
+                            class="w-full py-3 bg-[#c9a35c] text-white font-semibold rounded-lg hover:bg-[#b8934f] transition tracking-wide">
+                            INICIAR SESIÓN
+                        </button>
+                    </form>
+
+                    <!-- LINK -->
+                    <p class="text-sm text-center text-gray-400 mt-6">
+                        ¿No tienes cuenta?
+                        <a href="/register" class="text-[#c9a35c] hover:underline">
+                            Regístrate
+                        </a>
+                    </p>
+
+        </div>
+
+    </div>
+    <script>
+        function togglePassword(id, button) {
+            const input = document.getElementById(id);
+            const eyeOpen = button.querySelectorAll(".eye-open");
+            const eyeClosed = button.querySelector(".eye-closed");
+
+            if (input.type === "password") {
+                input.type = "text";
+
+                // cambiar icono
+                eyeOpen.forEach(el => el.classList.add("hidden"));
+                eyeClosed.classList.remove("hidden");
+            } else {
+                input.type = "password";
+
+                // volver icono original
+                eyeOpen.forEach(el => el.classList.remove("hidden"));
+                eyeClosed.classList.add("hidden");
+            }
+        }
+    </script>
+</body>
+
+</html>

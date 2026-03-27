@@ -3,9 +3,85 @@ const router = express.Router();
 const nodemailer = require("nodemailer");
 
 const posts = require("../data/posts");
+const User = require("../models/User");
+const bcrypt = require("bcrypt");
+const passport = require('passport');
+const { isAuthenticated, isAdmin } = require('../middlewares/roles');
 router.get("/", (req, res) => {
     res.render("web/inicio");
 });
+
+router.get('/profile', isAuthenticated, (req, res) => {
+    res.json(req.user);
+});
+
+
+router.get("/register", (req, res) => {
+    res.render("autentication/register", { error: null });
+});
+
+router.get("/login", (req, res) => {
+    res.render("autentication/login", { error: null });
+});
+
+router.post("/register", async (req, res) => {
+    const { email, password, confirmPassword } = req.body;
+
+    if (!email || !password || !confirmPassword) {
+        return res.render("autentication/register", { error: "Todos los campos son obligatorios" });
+    }
+
+    if (password !== confirmPassword) {
+        return res.render("autentication/register", { error: "Las contraseñas no coinciden" });
+    }
+
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+        return res.render("autentication/register", { error: "El usuario ya existe" });
+    }
+
+    const hash = await bcrypt.hash(password, 10);
+
+    const user = new User({ email, password: hash, role: "user" });
+    await user.save();
+
+    res.redirect("/login");
+});
+
+router.post("/login", async (req, res) => {
+    const user = await User.findOne({ email: req.body.email });
+
+    if (!user) {
+        return res.render("autentication/login", { error: "Usuario no existe" });
+    }
+
+    if (!user.password) {
+        return res.render("autentication/login", {
+            error: "Este usuario usa Google para iniciar sesión"
+        });
+    }
+
+    const valid = await bcrypt.compare(req.body.password, user.password);
+
+    if (!valid) {
+        return res.render("autentication/login", { error: "Contraseña incorrecta" });
+    }
+    res.send("Login correcto");
+});
+
+router.get("/auth/google",
+    passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+router.get("/auth/google/callback",
+    passport.authenticate("google", {
+        failureRedirect: "/login"
+    }),
+    (req, res) => {
+        res.redirect("/admin");
+    }
+);
 
 router.get("/galeria", (req, res) => {
     res.render("web/portfolio");
@@ -61,9 +137,19 @@ router.get("/fotografia-seguimiento-dos-hermanas", (req, res) => {
     res.render("web/seguimiento");
 });
 
+router.get("/fotografia-pareja-dos-hermanas", (req, res) => {
+    res.render("web/pareja");
+});
+
+router.get("/fotografia-pack-embarazo-newborn-dos-hermanas", (req, res) => {
+    res.render("web/pack-embarazo-newborn");
+});
+
 router.get("/contacto", (req, res) => {
     res.render("web/contacto");
 });
+
+
 
 
 router.get('/blog', (req, res) => {
@@ -73,8 +159,12 @@ router.get('/blog', (req, res) => {
 
 router.get("/blog/:slug", (req, res) => {
     const post = posts.find(p => p.slug === req.params.slug);
-    if (!post) return res.status(404).render("web/404", { message: "Artículo no encontrado" });
-    res.render('blog/post', { post });
+
+    if (!post) {
+        return res.status(404).send("Post no encontrado");
+    }
+
+    res.render("blog/blog-post", { post });
 });
 
 router.post("/contacto", async (req, res) => {
